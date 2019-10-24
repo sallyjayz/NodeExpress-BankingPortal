@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const { accounts, users, writeJSON} = require('./data');
-const accountRoute = require('./routes/accounts.js');
-const servicesRoute = require('./routes/services.js');
+const accountRoutes = require('./routes/accounts');
+const servicesRoutes = require('./routes/services');
 
 const app = express();
 
@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
     res.render('index', {title: 'Account Summary', accounts});
 });
 
-app.use('/account', accountRoute);
-app.use('/services', servicesRoute);
+app.use('/account', accountRoutes);
+app.use('/services', servicesRoutes);
 
 
 app.get('/profile', (req, res) => {
